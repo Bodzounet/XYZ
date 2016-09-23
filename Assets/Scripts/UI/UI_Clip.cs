@@ -18,6 +18,7 @@ namespace UI
         {
             if (oldWeapon != null)
                 oldWeapon.Clip.OnStockClipChanged -= OnAmmoChanged;
+
             newWeapon.Clip.OnStockClipChanged += OnAmmoChanged;
 
             OnAmmoChanged(newWeapon.Clip.AmmoRemaining, newWeapon.Clip.MaxCapacity);

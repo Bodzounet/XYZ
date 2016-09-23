@@ -122,7 +122,7 @@ public class AvatarController : MonoBehaviour
         RunningSpeed = BaseRunningSpeed;
         JumpingSpeed = BaseJumpingSpeed;
 
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update ()
@@ -133,7 +133,14 @@ public class AvatarController : MonoBehaviour
 
         _MainShoot();
         _AltShoot();
-	}
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+    }
 
     private void _Look()
     {
