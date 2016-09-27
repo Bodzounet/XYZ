@@ -12,7 +12,7 @@ namespace UI
         void Awake()
         {
             _text = GetComponentInChildren<Text>();
-            FindObjectOfType<AvatarController>().OnWeaponChanged += OnWeaponChanged;
+            FindObjectOfType<WeaponController>().OnWeaponChanged += OnWeaponChanged;
         }
 
         void OnWeaponChanged(AWeapon oldWeapon, AWeapon newWeapon)

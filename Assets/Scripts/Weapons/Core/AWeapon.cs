@@ -49,25 +49,27 @@ public abstract class AWeapon : MonoBehaviour
         _clip = GetComponent<Clip>();
         _anim = GetComponent<Animator>();
         _inventory = GetComponentInParent<Inventory>();
+
+        _clip.OnStockClipChanged += CB_OnClipAmmoChange;
+        _inventory.ammos[_clip.ammoType].OnStockAmmoChanged += CB_OnInventoryAmmoChange;
     }
 
     void Start()
     {
-        _anim.SetInteger("Ammos", _inventory.ammos[_clip.ammoType].StockAmmo);
-        Reload();
+        _anim.SetInteger("InventoryAmmo", _inventory.ammos[_clip.ammoType].StockAmmo);
+        _anim.SetInteger("ClipAmmo", _clip.AmmoRemaining);
     }
 
     public void Anim_ReloadEnd()
     {
         IsReloading = false;
+        IsShooting = false;
         _clip.ReloadClip();
     }
 
     public void Anim_ShootEnd()
     {
         IsShooting = false;
-        if (_clip.AmmoRemaining == 0)
-            Reload();
     }
 
     public void Anim_OutOfAmmoEnd()
@@ -78,7 +80,6 @@ public abstract class AWeapon : MonoBehaviour
 
     public virtual void Reload()
     {
-        _anim.SetInteger("Ammos", _inventory.ammos[_clip.ammoType].StockAmmo);
         IsReloading = true;
     }
 
@@ -87,7 +88,6 @@ public abstract class AWeapon : MonoBehaviour
         if (IsShooting || IsReloading)
             return;
 
-        _anim.SetInteger("Ammos", _clip.AmmoRemaining);
         IsShooting = true;
 
         if (_clip.AmmoRemaining != 0)
@@ -112,4 +112,14 @@ public abstract class AWeapon : MonoBehaviour
 
     protected abstract void _Core_MainShoot();
     protected abstract void _Core_AltShoot();
+
+    private void CB_OnClipAmmoChange(int newStock, int maxCapacity)
+    {
+        _anim.SetInteger("ClipAmmo", newStock);
+    }
+
+    private void CB_OnInventoryAmmoChange(int newStock, int maxCapacity)
+    {
+        _anim.SetInteger("InventoryAmmo", newStock);
+    }
 }

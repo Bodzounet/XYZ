@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(WeaponController))]
 public class AvatarController : MonoBehaviour
 {
-    public delegate void WeaponChanged(AWeapon oldWeapon, AWeapon newWeapon);
-    public event WeaponChanged OnWeaponChanged;
+    public enum e_MovementDirection
+    {
+        Left,
+        Right,
+        Forward,
+        Backward,
+
+        None
+    }
 
     [SerializeField]
     private float _baseWalkingSpeed;
@@ -82,38 +90,10 @@ public class AvatarController : MonoBehaviour
 
     private Rigidbody _rgbd;
 
-    private AWeapon[] _allWeapon;
-
-    private AWeapon _currentWeapon;
-    public AWeapon CurrentWeapon
-    {
-        get { return _currentWeapon; }
-        set
-        {
-            var old = _currentWeapon;
-            _currentWeapon = value;
-            if (OnWeaponChanged != null)
-            {
-                OnWeaponChanged(old, value);
-            }
-        }
-    }
-
-    public enum e_MovementDirection
-    {
-        Left,
-        Right,
-        Forward,
-        Backward,
-
-        None
-    }
 
     void Awake()
     {
         _rgbd = GetComponent<Rigidbody>();
-        _allWeapon = GetComponentsInChildren<AWeapon>();
-        CurrentWeapon = _allWeapon[0];
     }
 
     void Start()
@@ -130,9 +110,6 @@ public class AvatarController : MonoBehaviour
         _Move();
         _Jump();
         _Look();
-
-        _MainShoot();
-        _AltShoot();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -186,21 +163,5 @@ public class AvatarController : MonoBehaviour
                 return -transform.right;
         }
         return Vector3.zero;
-    }
-
-    private void _MainShoot()
-    {
-        if (Input.GetAxis("Fire1") > 0)
-        {
-            CurrentWeapon.MainShoot();
-        }
-    }
-
-    private void _AltShoot()
-    {
-        if (Input.GetAxis("Fire2") > 0)
-        {
-            CurrentWeapon.AltShoot();
-        }
     }
 }
