@@ -13,5 +13,7 @@ public class PlasmaGun : AWeapon
     {
         GameObject proj = Instantiate(mainProjectile, _projectileSpawnPos.position, _projectileSpawnPos.rotation) as GameObject;
         Destroy(proj, 1);
+
+        _clip.AmmoRemaining -= mainProjectileAmmoConsumption;
     }
 }

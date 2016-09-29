@@ -41,6 +41,7 @@ public class WeaponController : MonoBehaviour {
         }
         _weapons.OrderBy(x => x.weapon.gameObject.transform.GetSiblingIndex());
 
+        _weapons[0].unlocked = true;
         _weapons[1].unlocked = true;
     }
 
@@ -92,6 +93,7 @@ public class WeaponController : MonoBehaviour {
             var idx = _weapons.IndexOf(_weapons.Single(x => x.selected));
             idx = idx == unlockedWeapons.Count() - 1 ? 0 : idx + 1;
             CurrentWeapon = unlockedWeapons.ElementAt(idx).weapon;
+            CurrentWeapon.SwitchWeapon();
         }
         else if (wheel < 0)
         {
@@ -99,6 +101,7 @@ public class WeaponController : MonoBehaviour {
             var idx = _weapons.IndexOf(_weapons.Single(x => x.selected));
             idx = idx == 0 ? unlockedWeapons.Count() - 1 : idx - 1;
             CurrentWeapon = unlockedWeapons.ElementAt(idx).weapon;
+            CurrentWeapon.SwitchWeapon();
         }
 
         for (int i = 1; i <= 4; i++)
@@ -117,6 +120,7 @@ public class WeaponController : MonoBehaviour {
         if (_weapons[id - 1].unlocked)
         {
             CurrentWeapon = _weapons[id - 1].weapon;
+            CurrentWeapon.SwitchWeapon();
         }
     }
 

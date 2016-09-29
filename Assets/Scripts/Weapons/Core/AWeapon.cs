@@ -43,6 +43,9 @@ public abstract class AWeapon : MonoBehaviour
     public float mainProjectileVelocity;
     public float altProjectileVelocity;
 
+    public int mainProjectileAmmoConsumption;
+    public int altProjectileAmmoConsumption;
+
     void Awake()
     {
         _projectileSpawnPos = transform.FindChild("ProjectileSpawnPos");
@@ -56,8 +59,7 @@ public abstract class AWeapon : MonoBehaviour
 
     void Start()
     {
-        _anim.SetInteger("InventoryAmmo", _inventory.ammos[_clip.ammoType].StockAmmo);
-        _anim.SetInteger("ClipAmmo", _clip.AmmoRemaining);
+        SwitchWeapon();
     }
 
     public void Anim_ReloadEnd()
@@ -88,12 +90,10 @@ public abstract class AWeapon : MonoBehaviour
         if (IsShooting || IsReloading)
             return;
 
-        IsShooting = true;
-
-        if (_clip.AmmoRemaining != 0)
-        {
-            _Core_MainShoot();
-        }
+        if (_clip.AmmoRemaining >= mainProjectileAmmoConsumption)
+            IsShooting = true;
+        else
+            IsReloading = true;
     }
 
     public virtual void AltShoot()
@@ -101,9 +101,28 @@ public abstract class AWeapon : MonoBehaviour
         if (IsShooting || IsReloading)
             return;
 
-        _anim.SetInteger("Ammos", _clip.AmmoRemaining);
         IsShooting = true;
+    }
 
+    public virtual void SwitchWeapon()
+    {
+        _anim.SetInteger("InventoryAmmo", _inventory.ammos[_clip.ammoType].StockAmmo);
+        _anim.SetInteger("ClipAmmo", _clip.AmmoRemaining);
+        IsReloading = false;
+        IsShooting = false;
+        _anim.Play("Idle");
+    }
+
+    public void Anim_MainShoot()
+    {
+        if (_clip.AmmoRemaining >= mainProjectileAmmoConsumption)
+        {
+            _Core_MainShoot();
+        }
+    }
+
+    public void Anim_AltShoot()
+    {
         if (_clip.AmmoRemaining != 0)
         {
             _Core_AltShoot();

@@ -15,6 +15,6 @@ public class LaserGun : AWeapon
         proj.transform.forward = _projectileSpawnPos.forward;
         proj.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, mainProjectileVelocity));
 
-        _clip.AmmoRemaining--;
+        _clip.AmmoRemaining -= mainProjectileAmmoConsumption;
     }
 }
