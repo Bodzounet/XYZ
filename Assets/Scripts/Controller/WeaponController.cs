@@ -26,8 +26,6 @@ public class WeaponController : MonoBehaviour {
             _weapons.Single(x => x.weapon == value).selected = true;
             value.gameObject.SetActive(true);
 
-            Debug.Log(value.gameObject.name);
-
             if (OnWeaponChanged != null)
                 OnWeaponChanged(old, value);
         }
@@ -84,8 +82,6 @@ public class WeaponController : MonoBehaviour {
 
     private void _SwitchWeapon()
     {
-        WeaponData wp = _weapons.Single(x => x.weapon == CurrentWeapon);
-
         float wheel = Input.GetAxis("Mouse ScrollWheel");
         if (wheel > 0)
         {

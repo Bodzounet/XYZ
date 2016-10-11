@@ -32,7 +32,7 @@ public class AnimationEventCopier : EditorWindow
 
     void CopyData()
     {
-        Undo.RegisterUndo(targetObject, "Undo Generic Copy");
+        Undo.RecordObject(targetObject, "Undo Generic Copy");
 
         AnimationClip sourceAnimClip = sourceObject as AnimationClip;
         AnimationClip targetAnimClip = targetObject as AnimationClip;
