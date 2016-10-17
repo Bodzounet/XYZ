@@ -91,11 +91,15 @@ namespace IA
 
             _navMeshAgent.updateRotation = true;
             _navMeshAgent.SetDestination(to);
+
+            GetComponentInChildren<Animator>().SetBool("Attack", false);
         }
 
         Vector3 roamPos;
         private void _Roam()
         {
+            GetComponentInChildren<Animator>().SetBool("Attack", true);
+
             if (!_isRoaming)
             {
                 roamPos = transform.position + new Vector3(Random.Range(-5, 5f), 0, Random.Range(-5, 5f));

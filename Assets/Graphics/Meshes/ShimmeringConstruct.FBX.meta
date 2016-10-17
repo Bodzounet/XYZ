@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: 571278d07a683de4ca66228910a362f4
+timeCreated: 1476429609
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone_Core_00
+    100002: Bone_Core_01
+    100004: Bone_Core_02
+    100006: Bone_Core_03
+    100008: Bone_Head_00
+    100010: Bone_Head_01
+    100012: Bone_Head_02
+    100014: Bone_Root
+    100016: Bone_Tail_00
+    100018: Bone_Tail_01
+    100020: Bone_Tail_02
+    100022: Bone_Tail_03
+    100024: Bone_Tail_04
+    100026: Bone_Tail_05
+    100028: Bone_Tail_06
+    100030: Bone_Tail_07
+    100032: Bone_Tail_08
+    100034: Bone_Tail_09
+    100036: Bone_Tail_10
+    100038: Bone_Tail_11
+    100040: Bone_Tail_12
+    100042: Dummy001
+    100044: Dummy002
+    100046: Dummy003
+    100048: IK_Core
+    100050: IK_Tail
+    100052: //RootNode
+    100054: ShimmeringConstruct
+    400000: Bone_Core_00
+    400002: Bone_Core_01
+    400004: Bone_Core_02
+    400006: Bone_Core_03
+    400008: Bone_Head_00
+    400010: Bone_Head_01
+    400012: Bone_Head_02
+    400014: Bone_Root
+    400016: Bone_Tail_00
+    400018: Bone_Tail_01
+    400020: Bone_Tail_02
+    400022: Bone_Tail_03
+    400024: Bone_Tail_04
+    400026: Bone_Tail_05
+    400028: Bone_Tail_06
+    400030: Bone_Tail_07
+    400032: Bone_Tail_08
+    400034: Bone_Tail_09
+    400036: Bone_Tail_10
+    400038: Bone_Tail_11
+    400040: Bone_Tail_12
+    400042: Dummy001
+    400044: Dummy002
+    400046: Dummy003
+    400048: IK_Core
+    400050: IK_Tail
+    400052: //RootNode
+    400054: ShimmeringConstruct
+    4300000: ShimmeringConstruct
+    7400000: Global
+    7400002: Idle
+    7400004: Attack
+    7400006: Die
+    9500000: //RootNode
+    13700000: ShimmeringConstruct
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Global
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 380
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone_Root
+        weight: 1
+      - path: Bone_Root/Bone_Core_00
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02/Bone_Core_03
+        weight: 1
+      - path: Bone_Root/Bone_Head_00
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01/Bone_Head_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11/Bone_Tail_12
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy002
+        weight: 1
+      - path: Dummy003
+        weight: 1
+      - path: IK_Core
+        weight: 1
+      - path: IK_Tail
+        weight: 1
+      - path: ShimmeringConstruct
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone_Root
+        weight: 1
+      - path: Bone_Root/Bone_Core_00
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02/Bone_Core_03
+        weight: 1
+      - path: Bone_Root/Bone_Head_00
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01/Bone_Head_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11/Bone_Tail_12
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy002
+        weight: 1
+      - path: Dummy003
+        weight: 1
+      - path: IK_Core
+        weight: 1
+      - path: IK_Tail
+        weight: 1
+      - path: ShimmeringConstruct
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone_Root
+        weight: 1
+      - path: Bone_Root/Bone_Core_00
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02/Bone_Core_03
+        weight: 1
+      - path: Bone_Root/Bone_Head_00
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01/Bone_Head_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11/Bone_Tail_12
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy002
+        weight: 1
+      - path: Dummy003
+        weight: 1
+      - path: IK_Core
+        weight: 1
+      - path: IK_Tail
+        weight: 1
+      - path: ShimmeringConstruct
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 380
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone_Root
+        weight: 1
+      - path: Bone_Root/Bone_Core_00
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02
+        weight: 1
+      - path: Bone_Root/Bone_Core_00/Bone_Core_01/Bone_Core_02/Bone_Core_03
+        weight: 1
+      - path: Bone_Root/Bone_Head_00
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01
+        weight: 1
+      - path: Bone_Root/Bone_Head_00/Bone_Head_01/Bone_Head_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11
+        weight: 1
+      - path: Bone_Root/Bone_Tail_00/Bone_Tail_01/Bone_Tail_02/Bone_Tail_03/Bone_Tail_04/Bone_Tail_05/Bone_Tail_06/Bone_Tail_07/Bone_Tail_08/Bone_Tail_09/Bone_Tail_10/Bone_Tail_11/Bone_Tail_12
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy002
+        weight: 1
+      - path: Dummy003
+        weight: 1
+      - path: IK_Core
+        weight: 1
+      - path: IK_Tail
+        weight: 1
+      - path: ShimmeringConstruct
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

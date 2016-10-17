@@ -54,6 +54,7 @@ public abstract class AWeapon : MonoBehaviour
         _inventory = GetComponentInParent<Inventory>();
 
         _clip.OnStockClipChanged += CB_OnClipAmmoChange;
+
         _inventory.ammos[_clip.ammoType].OnStockAmmoChanged += CB_OnInventoryAmmoChange;
     }
 

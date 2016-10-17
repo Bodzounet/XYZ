@@ -59,6 +59,8 @@ namespace IA
                 _patrolPoints.Add(transform.position + direction * maxDistance * Random.Range(0.2f, 0.8f));
             }
             _patrolPoints.Add(transform.position);
+
+            PatrollingState = true;
         }
 
         private IEnumerator Co_Patrol()
