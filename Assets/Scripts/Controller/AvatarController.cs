@@ -4,6 +4,18 @@ using System.Collections;
 [RequireComponent(typeof(WeaponController))]
 public class AvatarController : MonoBehaviour
 {
+    private SwitchTrigger.ActivateSwitchTrigger switchTrigger;
+    public SwitchTrigger.ActivateSwitchTrigger SwitchTrigger
+    {
+        get { return switchTrigger; }
+        set
+        {
+            switchTrigger = value;
+        }
+    }
+
+    private bool canUseAction = true;
+
     public enum e_MovementDirection
     {
         Left,
@@ -110,6 +122,7 @@ public class AvatarController : MonoBehaviour
         _Move();
         _Jump();
         _Look();
+        _Switch();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -163,5 +176,22 @@ public class AvatarController : MonoBehaviour
                 return -transform.right;
         }
         return Vector3.zero;
+    }
+
+    private void _Switch()
+    {
+        if (Input.GetAxis("Action") > 0)
+        {
+            if (canUseAction)
+            {
+                if (SwitchTrigger != null)
+                    SwitchTrigger();
+            }
+            canUseAction = false;
+        }
+        else
+        {
+            canUseAction = true;
+        }
     }
 }

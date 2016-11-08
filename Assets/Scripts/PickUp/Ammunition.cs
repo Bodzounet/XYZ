@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ammunition : MonoBehaviour
+public class Ammunition : APickUp
 {
     public Ammo.e_AmmoType type;
     public int refillAmount;
 	
-    public void OnTriggerEnter(Collider col)
+    public override void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Avatar")
         {

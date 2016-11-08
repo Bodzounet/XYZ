@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SwitchItemDataAux : MonoBehaviour
+public class SwingItemTo : MonoBehaviour
 {
     private Vector3 _destination;
+
+    public float speed = 0.1f;
 
     void Start()
     {
@@ -30,7 +32,7 @@ public class SwitchItemDataAux : MonoBehaviour
     {
         while (transform.localPosition != _destination)
         {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, _destination, 0.1f);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _destination, speed);
             yield return new WaitForEndOfFrame();
         }
     }
