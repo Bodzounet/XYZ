@@ -22,6 +22,6 @@ public class CommandsPanel : MonoBehaviour
 
     public void StartMission()
     {
-
+        LevelManager.Instance.LoadLevel("Testing AI");
     }
 }

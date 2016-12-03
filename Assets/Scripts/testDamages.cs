@@ -21,17 +21,12 @@ public class testDamages : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            ahm.Armor -= 10;
+            ahm.Life += 10;
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            ahm.Life += 10;
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ahm.Life -= 10;
+            ahm.TakeDamages(10);
         }
     }
 }

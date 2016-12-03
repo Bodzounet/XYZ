@@ -8,21 +8,25 @@ using UnityEngine.SceneManagement;
 
 public class Save_Load : Singleton<Save_Load>
 {
-    public GameObject PickUpHolder;
-    public GameObject EnemyHolder;
-    public GameObject TriggerHolder;
+    public GameObject pickUpHolder;
+    public GameObject enemyHolder;
+    public GameObject triggerHolder;
+
+    public LoadingScreen loadingScreen;
 
     void Start()
     {
-        PickUpHolder = GameObject.Find("PickUpHolder");
-        EnemyHolder = GameObject.Find("EnemyHolder");
-        TriggerHolder = GameObject.Find("TriggerHolder");
+        pickUpHolder = GameObject.Find("PickUpHolder");
+        enemyHolder = GameObject.Find("EnemyHolder");
+        triggerHolder = GameObject.Find("TriggerHolder");
+        loadingScreen = GameObject.FindObjectOfType<LoadingScreen>();
 
         SceneManager.activeSceneChanged += (Scene before, Scene After) =>
         {
-            PickUpHolder = GameObject.Find("PickUpHolder");
-            EnemyHolder = GameObject.Find("EnemyHolder");
-            TriggerHolder = GameObject.Find("TriggerHolder");
+            pickUpHolder = GameObject.Find("PickUpHolder");
+            enemyHolder = GameObject.Find("EnemyHolder");
+            triggerHolder = GameObject.Find("TriggerHolder");
+            loadingScreen = GameObject.FindObjectOfType<LoadingScreen>();
         };
     }
 
@@ -40,6 +44,8 @@ public class Save_Load : Singleton<Save_Load>
     private IEnumerator Co_Save(int slot)
     {
         SaveFile sf = new SaveFile();
+
+        sf.lvlId = SceneManager.GetActiveScene().buildIndex;
 
         int loop = 0;
         foreach (var triggerData in _SaveTrigger())
@@ -67,9 +73,9 @@ public class Save_Load : Singleton<Save_Load>
 
     private void _SavePickUp(SaveFile savefile)
     {
-        for (int i = 0; i < PickUpHolder.transform.childCount; i++)
+        for (int i = 0; i < pickUpHolder.transform.childCount; i++)
         {
-            Transform child = PickUpHolder.transform.GetChild(i);
+            Transform child = pickUpHolder.transform.GetChild(i);
 
             PickUpData pud = new PickUpData();
             pud.position = child.position;
@@ -81,9 +87,9 @@ public class Save_Load : Singleton<Save_Load>
 
     private void _SaveEnemy(SaveFile savefile)
     {
-        for (int i = 0; i < EnemyHolder.transform.childCount; i++)
+        for (int i = 0; i < enemyHolder.transform.childCount; i++)
         {
-            Transform child = EnemyHolder.transform.GetChild(i);
+            Transform child = enemyHolder.transform.GetChild(i);
 
             EnemyData ed = new EnemyData();
 
@@ -102,9 +108,9 @@ public class Save_Load : Singleton<Save_Load>
 
     private IEnumerable<TriggerData> _SaveTrigger()
     {
-        for (int i = 0; i < TriggerHolder.transform.childCount; i++)
+        for (int i = 0; i < triggerHolder.transform.childCount; i++)
         {
-            var child = TriggerHolder.transform.GetChild(i);
+            var child = triggerHolder.transform.GetChild(i);
 
             TriggerData td = new TriggerData();
 
@@ -161,12 +167,17 @@ public class Save_Load : Singleton<Save_Load>
 
     public void Load(int slot)
     {
+        loadingScreen.IsEnabled = true;
+        loadingScreen.PrintMessage("LoadingLevel...");
+
         StartCoroutine(Co_Load(slot));
     }
 
     private IEnumerator Co_Load(int slot)
     {
         SaveFile sf = null;
+
+        loadingScreen.PrintMessage("LoadingLevelData...");
 
         Exception e = null;
         System.Threading.Thread thread = new System.Threading.Thread(() => _SafeExecute(() => { sf = _ReadData(slot); }, out e));
@@ -180,16 +191,28 @@ public class Save_Load : Singleton<Save_Load>
             yield break;
         }
 
+        loadingScreen.PrintMessage("LoadingLevel");
+        yield return SceneManager.LoadSceneAsync(sf.lvlId);
+        _ClearHolder(enemyHolder);
+        _ClearHolder(pickUpHolder);
+        _ClearHolder(triggerHolder);
+
         int loop = 0;
+
+        loadingScreen.PrintMessage("LoadingEvents...");
+
         foreach (var trigger in _LoadTrigger(sf))
         {
-            trigger.transform.SetParent(TriggerHolder.transform);
+            trigger.transform.SetParent(triggerHolder.transform);
             if (++loop > 10)
             {
                 loop = 0;
                 yield return new WaitForEndOfFrame();
             }
         }
+
+        loadingScreen.PrintMessage("Done...");
+        loadingScreen.IsEnabled = false;
     }
 
     private IEnumerable<GameObject> _LoadTrigger(SaveFile sf)
@@ -197,7 +220,6 @@ public class Save_Load : Singleton<Save_Load>
         foreach (var v in sf.triggerData)
         {
             GameObject child = new GameObject();
-            //child.transform.SetParent(TriggerHolder.transform);
 
             TriggerManager tm = child.AddComponent<TriggerManager>();
             tm.triggerId = v.id;
@@ -237,6 +259,14 @@ public class Save_Load : Singleton<Save_Load>
         return sf;
     }
 
+    private void _ClearHolder(GameObject holder)
+    {
+        for (int i = 0; i < holder.transform.childCount; i++)
+        {
+            Destroy(holder.transform.GetChild(i).gameObject);
+        }
+    }
+
     #endregion
 
     #region SerializabledData
@@ -244,6 +274,8 @@ public class Save_Load : Singleton<Save_Load>
     [System.Serializable]
     public class SaveFile
     {
+        public int lvlId;
+
         public List<EnemyData> enemyData = new List<EnemyData>();
         public List<PickUpData> pickUpData = new List<PickUpData>();
         public List<TriggerData> triggerData = new List<TriggerData>();
