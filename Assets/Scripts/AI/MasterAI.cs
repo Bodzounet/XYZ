@@ -24,8 +24,8 @@ public class MasterAI : MonoBehaviour
 
     public void Die()
     {
-        GameObject go = GameObject.Instantiate(fractured, transform.GetChild(0).position, transform.rotation) as GameObject;
-        //Destroy(go, 5);
+        fractured.SetActive(true);
+        fractured.transform.SetParent(null);
         Destroy(this.gameObject);
     }
 }

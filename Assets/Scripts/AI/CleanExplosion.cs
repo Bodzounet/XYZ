@@ -12,17 +12,10 @@ namespace AI
 
         private IEnumerator Co_Clean()
         {
-            //var renderer = GetComponent<Renderer>();
+            Vector3 localScale = transform.localScale;
             for (int i = 0; i < 50; i++)
             {
-                //foreach (var v in renderer.materials)
-                //{
-                //    var newColor = v.color;
-                //    newColor.a = 0;
-                //    v.color = Color.Lerp(v.color, newColor, 0.02f * i);
-                //    yield return new WaitForSeconds(0.1f);
-                //}
-                transform.localScale = Vector3.one * (1 - 0.01f * i);
+                transform.localScale = localScale * (1 - 0.01f * i);
 
                 yield return new WaitForSeconds(0.08f);
             }

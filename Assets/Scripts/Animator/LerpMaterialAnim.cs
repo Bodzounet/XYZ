@@ -39,7 +39,7 @@ public class LerpMaterialAnim : MonoBehaviour
 
     void Start()
     {
-        var mr = GetComponent<MeshRenderer>();
+        var mr = GetComponentInChildren<MeshRenderer>();
         mat = mr.materials[MaterialIdx];
     }
 

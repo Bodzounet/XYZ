@@ -6,7 +6,9 @@ public class PlasmaGun : AWeapon
 {
     protected override void _Core_AltShoot()
     {
-        throw new NotImplementedException();
+        Instantiate(altProjectile, _projectileSpawnPos.position, _projectileSpawnPos.rotation);
+
+        _clip.AmmoRemaining -= altProjectileAmmoConsumption;
     }
 
     protected override void _Core_MainShoot()

@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     {
         ammos = _ammos.ToDictionary(x => x.type, x => x.ammo);
 
-        ammos[Ammo.e_AmmoType.Blue].StockAmmo += 10;
+        ammos[Ammo.e_AmmoType.Blue].StockAmmo += 100;
     }
 
     [System.Serializable]

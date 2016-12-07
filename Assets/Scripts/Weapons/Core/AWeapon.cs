@@ -13,6 +13,7 @@ public abstract class AWeapon : MonoBehaviour
         get { return _clip; }
     }
 
+    [SerializeField]
     protected Transform _projectileSpawnPos;
     protected Animator _anim;
 
@@ -40,6 +41,17 @@ public abstract class AWeapon : MonoBehaviour
         }
     }
 
+    protected bool _isAltShooting = false;
+    protected bool IsAltShooting
+    {
+        get { return _isAltShooting; }
+        set
+        {
+            _isAltShooting = value;
+            _anim.SetBool("AltShoot", value);
+        }
+    }
+
     public float mainProjectileVelocity;
     public float altProjectileVelocity;
 
@@ -48,7 +60,6 @@ public abstract class AWeapon : MonoBehaviour
 
     void Awake()
     {
-        _projectileSpawnPos = transform.FindChild("ProjectileSpawnPos");
         _clip = GetComponent<Clip>();
         _anim = GetComponent<Animator>();
         _inventory = GetComponentInParent<Inventory>();
@@ -67,17 +78,20 @@ public abstract class AWeapon : MonoBehaviour
     {
         IsReloading = false;
         IsShooting = false;
+        IsAltShooting = false;
         _clip.ReloadClip();
     }
 
     public void Anim_ShootEnd()
     {
         IsShooting = false;
+        IsAltShooting = false;
     }
 
     public void Anim_OutOfAmmoEnd()
     {
         IsShooting = false;
+        IsAltShooting = false;
         IsReloading = false;
     }
 
@@ -88,7 +102,7 @@ public abstract class AWeapon : MonoBehaviour
 
     public virtual void MainShoot()
     {
-        if (IsShooting || IsReloading)
+        if (IsShooting || IsAltShooting || IsReloading)
             return;
 
         if (_clip.AmmoRemaining >= mainProjectileAmmoConsumption)
@@ -99,10 +113,13 @@ public abstract class AWeapon : MonoBehaviour
 
     public virtual void AltShoot()
     {
-        if (IsShooting || IsReloading)
+        if (IsShooting || IsAltShooting || IsReloading)
             return;
 
-        IsShooting = true;
+        if (_clip.AmmoRemaining >= altProjectileAmmoConsumption)
+            IsAltShooting = true;
+        else
+            IsReloading = true;
     }
 
     public virtual void SwitchWeapon()
@@ -111,6 +128,7 @@ public abstract class AWeapon : MonoBehaviour
         _anim.SetInteger("ClipAmmo", _clip.AmmoRemaining);
         IsReloading = false;
         IsShooting = false;
+        IsAltShooting = false;
         _anim.Play("Idle");
     }
 
