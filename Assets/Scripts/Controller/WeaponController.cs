@@ -9,6 +9,8 @@ public class WeaponController : MonoBehaviour {
 
     private List<WeaponData> _weapons = new List<WeaponData>();
 
+    private bool[] charging = new bool[2];
+
     private AWeapon _currentWeapon;
     public AWeapon CurrentWeapon
     {
@@ -45,7 +47,7 @@ public class WeaponController : MonoBehaviour {
 
     void Start()
     {
-        CurrentWeapon = _weapons[1].weapon;
+        CurrentWeapon = _weapons[0].weapon;
     }
 
     void Update ()
@@ -61,6 +63,12 @@ public class WeaponController : MonoBehaviour {
         if (Input.GetAxis("Fire1") > 0)
         {
             CurrentWeapon.MainShoot();
+            charging[0] = true;
+        }
+        else if (charging[0])
+        {
+            charging[0] = false;
+            CurrentWeapon.EndChargeMainShoot();
         }
     }
 
@@ -69,6 +77,12 @@ public class WeaponController : MonoBehaviour {
         if (Input.GetAxis("Fire2") > 0)
         {
             CurrentWeapon.AltShoot();
+            charging[1] = true;
+        }
+        else if (charging[1])
+        {
+            charging[1] = false;
+            CurrentWeapon.EndChargeAltShoot();
         }
     }
 
